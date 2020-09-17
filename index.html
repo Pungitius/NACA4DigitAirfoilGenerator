@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NACA 4 Digit Airfoil Plotter</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.css"
+        integrity="sha512-bkbbtvfcVjmlzyq/v4GaSiyJY3DStQhRIbJY9D0qrheR4LgSNNzrEQcdkqdJQUbuYCkLkLCj5icLxdjxRQKsJg=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+</head>
+
+<body>
+
+    <canvas id="plot" width="20" height="10">
+    </canvas>
+
+    <div id="menu">
+        <h4>NACA 4 Digit Airfoil Plotter</h4>
+        <form id="optionsForm">
+            <div>
+                <label for="digits" id="naca">NACA</label>
+                <input type="text" id="digits" name="digits" placeholder="mptt">
+
+                <button type="button" class="button" id="plotButton">Plot</button>
+                <button type="button" class="button-primary" id="downloadButton">Download</button>
+
+                <div id="input_error">
+                </div>
+                <div id="checkboxes">
+                    <label for="checkbox" class="checkLabel">show camber</label>
+                    <input type="checkbox" id="camberCheck" class="check">
+
+                    <label for="checkbox" class="checkLabel">show chord</label>
+                    <input type="checkbox" id="chordCheck" class="check">
+                </div>
+            </div>
+        </form>
+
+        <ul>
+            <li>m - maximum camber as percentage of the chord</li>
+            <li>p - distance of maximum camber from the airfoil leading edge in tenths of the chord</li>
+            <li>tt - maximum thickness of the airfoil as percent of the chord</li>
+        </ul>
+        <p>(source: Wikipedia)</p>
+    </div>
+</body>
+
+</html>

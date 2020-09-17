@@ -1,0 +1,65 @@
+* { margin:0; padding:0; font-size: 1em;} /* to remove the top and left whitespace */
+
+html, body { width:100%; height:100%; } /* just to be sure these are full screen*/
+
+body {
+    text-align: center;
+}
+
+canvas {
+    /* background: #eeeeee; */
+    background-color: white;
+    display: block;     /* to remove the scrollbars */
+}
+
+#menu {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    /* background-color: green; */
+
+    text-align: left;
+}
+
+#optionsForm {
+    margin: 0;
+}
+
+#naca {
+    width: 50px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.checkLabel {
+    display: inline-block;
+}
+
+.check {
+    margin-right: 20px;
+}
+
+#input_error {
+    background-color: #ffcccb;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: red;
+    border-radius: 4px;
+    display: none;
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    * {
+        font-size: 1em;
+    }
+
+    #menu {
+        width: 800px;
+        margin: auto;
+        padding: 20px;
+        /* background-color: green; */
+    
+        text-align: left;
+    }
+}
