@@ -7,6 +7,8 @@ let ctx;
 let plotButton;
 let downloadButton;
 let digitInput;
+let camberCheck;
+let chordCheck;
 
 let currentAirfoil = DEFAULT_AIRFOIL;
 let points;
@@ -18,6 +20,9 @@ window.onload = (event) => {
     plotButton = document.getElementById("plotButton");
     downloadPNG = document.getElementById("downloadPNG");
     downloadSVG = document.getElementById("downloadSVG");
+
+    camberCheck = document.getElementById("camberCheck")
+    chordCheck = document.getElementById("chordCheck")
 
     digitInput = document.getElementById("digits");
 
@@ -66,6 +71,9 @@ window.onload = (event) => {
         link.download = 'NACA' + currentAirfoil + ".svg";
         link.click();
     });
+
+    camberCheck.addEventListener("change", () => {plotButton.click()})
+    chordCheck.addEventListener("change", () => {plotButton.click()})
 
     window.addEventListener(
         "resize",
@@ -268,7 +276,7 @@ function NACA4Digit(c, m, p, t) {
     ctx.stroke();
 
     // camber
-    if (document.getElementById("camberCheck").checked) {
+    if (camberCheck.checked) {
         ctx.beginPath();
         for (let x = 0; x < 1; x += step) {
             var camber;
@@ -299,7 +307,7 @@ function NACA4Digit(c, m, p, t) {
         }
     }
 
-    if (document.getElementById("chordCheck").checked) {
+    if (chordCheck.checked) {
         // chord
         ctx.beginPath();
         ctx.moveTo(0.1 * canvas.width, 0);
