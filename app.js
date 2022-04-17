@@ -32,19 +32,14 @@ window.onload = (event) => {
         console.log(digits);
         if (event.key === 'Enter') {
             event.preventDefault();
-            plotButton.click();
+            currentAirfoil = digitInput.value;
+            plotAirfoil();
         }
     });
 
     plotButton.addEventListener("click", () => {
         currentAirfoil = digitInput.value;
-        var error = airfoilFromString(digitInput.value);
-        if (error.length > 0) {
-            errorDiv.innerText = error;
-            errorDiv.style.display = "block";
-        } else {
-            errorDiv.style.display = "none";
-        }
+        plotAirfoil();
     });
 
     downloadPNG.addEventListener("click", () => {
@@ -72,8 +67,8 @@ window.onload = (event) => {
         link.click();
     });
 
-    camberCheck.addEventListener("change", () => {plotButton.click()})
-    chordCheck.addEventListener("change", () => {plotButton.click()})
+    camberCheck.addEventListener("change", () => plotAirfoil())
+    chordCheck.addEventListener("change", () => plotAirfoil())
 
     window.addEventListener(
         "resize",
@@ -89,6 +84,16 @@ window.onload = (event) => {
 function resizeCanvas(x, y) {
     canvas.width = x;
     canvas.height = y;
+}
+
+function plotAirfoil() {
+    let error = airfoilFromString(currentAirfoil);
+    if (error.length > 0) {
+        errorDiv.innerText = error;
+        errorDiv.style.display = "block";
+    } else {
+        errorDiv.style.display = "none";
+    }
 }
 
 function airfoilFromString(text) {
