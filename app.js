@@ -30,7 +30,7 @@ window.onload = (event) => {
 
     digitInput.addEventListener("keydown", function (event) {
         console.log(digits);
-        if (event.keyCode === 13) {
+        if (event.key === 'Enter') {
             event.preventDefault();
             plotButton.click();
         }
